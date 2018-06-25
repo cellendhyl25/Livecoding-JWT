@@ -1,13 +1,18 @@
-const mysql = require('mysql2')
+// const mysql = require('mysql')
 
-// connection database with a promise
-const pendingConnection = mysql.createConnection({
+// // connection database with a promise
 
-     host: 'localhost',
-     user: 'root',
-     password: 'password',
-     database : 'mydb'
+// var connection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'password',
+//     database: 'mydb'
+//   })
 
-})
+// connection.connect(function(err) {
+//     console.log("connection to DB sucessful")
+//   if (err) throw err
+  
+// });
 
-console.log("connection to DB sucessful")
+
