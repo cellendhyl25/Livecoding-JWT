@@ -23,7 +23,7 @@ class SignUP extends Component {
                     <input type="text" name="username" placeholder="username" onChange={this.UpdateField}/>
                     <input type="password" name="password" placeholder="password" onChange={this.UpdateField}/>
                 </form>
-                <button type="button" onClick={this.Submit}>Confirmer</button>
+                <button type="button" onClick={this.Submit}>SignUp</button>
             </div>
         );
     }

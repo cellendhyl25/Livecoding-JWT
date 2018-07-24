@@ -15,7 +15,6 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`, {
-    cookie: req.headers.cookie,
     token: req.headers.authorization
   })
   next()
