@@ -46,7 +46,6 @@ router.post('/login', async(req, res, next) => {
         db
             .execute('SELECT Password FROM table1 WHERE Username = ?', [value])
             .spread(async function (users) {
-                // const convert = JSON.parse(JSON.stringify(users))
                 const isEqual = await bcrypt.compare(req.body.user.password, users[0].Password)
                 if (isEqual === true) {
                     const token = jwt.sign({
@@ -83,6 +82,25 @@ router.post('/register', (req, res) => {
                 res.send(result)
             })
         })
+})
+
+
+router.get('/secure', (req, res, next) => {
+  console.log(req.headers.authorization)
+  const token = req
+    .headers
+    .authorization
+    .split(' ')[1]
+  jwt.verify(token, jwtSecret, function (err, decoded) {
+    console.log('token verify')
+    if (err) {
+      console.log(err)
+      res.json('notlogged')
+    } else if (err === null) {
+      console.log(true)
+      res.json('logged')
+    }
+  })
 })
 
 module.exports = router
